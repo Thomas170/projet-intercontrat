@@ -1,0 +1,93 @@
+/* Style the card */
+.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product Image */
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Card Body */
+.card-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Product Title */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Product Price */
+.text-danger {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ff5c5c;
+}
+
+/* Total Price */
+.text-muted {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Quantity Control */
+.d-flex.justify-content-center.align-items-center {
+  margin-top: 10px;
+}
+
+button.btn-outline-secondary {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Remove Button */
+.btn-danger {
+  background-color: #ff5c5c;
+  border: none;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  color: white;
+  margin-left: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #ff3b3b;
+}
+
+/* Add spacing between quantity buttons and quantity number */
+span.mx-2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 10px;
+}
+
+/* Ensures the buttons are aligned in a row */
+.d-flex.justify-content-between {
+  align-items: center;
+}

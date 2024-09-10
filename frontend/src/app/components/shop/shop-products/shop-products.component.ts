@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../../../models/product';
 import { ShopProductComponent } from './shop-product/shop-product.component';
-import { ProductService } from '../../../services/product.service';
+import mockProducts from './data.json';
 
 @Component({
   selector: 'app-shop-products',
@@ -13,12 +13,12 @@ import { ProductService } from '../../../services/product.service';
 export class ShopProductsComponent {
   products: Product[] = [];
 
-  constructor(private productService: ProductService) {
+  constructor() {
     // Mock Data
-    this.products;
+    this.products = mockProducts;
   }
 
   ngOnInit(): void {
-    this.productService.getProducts();
+    //this.productService.getProducts();
   }
 }
