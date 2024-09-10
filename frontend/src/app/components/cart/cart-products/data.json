@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "nom": "Chaise de bureau ergonomique",
+      "description": "Chaise confortable avec support lombaire.",
+      "prix": 120,
+      "imageUrl": "chair.jpg",
+      "stock": 15,
+      "quantitySelected": 1
+    },
+    {
+      "id": 2,
+      "nom": "Ordinateur portable Gamer",
+      "description": "Ordinateur portable avec processeur Intel i7.",
+      "prix": 1500,
+      "imageUrl": "laptop.jpg",
+      "stock": 7,
+      "quantitySelected": 1
+    },
+    {
+      "id": 3,
+      "nom": "Casque sans fil",
+      "description": "Casque audio Bluetooth avec réduction de bruit.",
+      "prix": 80,
+      "imageUrl": "headphones.jpg",
+      "stock": 25,
+      "quantitySelected": 1
+    },
+    {
+      "id": 4,
+      "nom": "Télévision OLED 55 pouces",
+      "description": "Téléviseur 4K Ultra HD avec des couleurs vives.",
+      "prix": 2000,
+      "imageUrl": "tv.jpg",
+      "stock": 5,
+      "quantitySelected": 1
+    },
+    {
+      "id": 5,
+      "nom": "Smartphone Android",
+      "description": "Smartphone avec écran AMOLED et caméra 64 MP.",
+      "prix": 600,
+      "imageUrl": "smartphone.jpg",
+      "stock": 12,
+      "quantitySelected": 1
+    }
+  ]
+  
