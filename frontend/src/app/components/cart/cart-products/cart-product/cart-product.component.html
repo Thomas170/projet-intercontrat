@@ -1,42 +1,54 @@
-<div class="card shadow-sm">
-  <!-- Product Image -->
-  <img class="img-fluid" [src]="'images/' + product.imageUrl" />
+<div class="card mb-3 shadow-sm">
+  <div class="row no-gutters">
+    <!-- Product Image -->
+    <div class="col-3">
+      <div class="d-flex align-items-center justify-content-center">
+        <img
+          class="img-fluid"
+          [src]="'images/' + product.imageUrl"
+          alt="{{ product.nom }}"
+        />
+      </div>
+    </div>
 
-  <!-- Product Details -->
-  <div class="card-body">
-    <h5 class="card-title">{{ product.nom }}</h5>
+    <!-- Product Info -->
+    <div class="col-3 card-body">
+      <h5 class="">{{ product.nom }}</h5>
+      <h6 class="">{{ product.prix }} €</h6>
+    </div>
 
-    <!-- Price of the Product -->
-    <h5 class="text-danger">{{ product.prix }} €</h5>
-
-    <!-- Total Price for This Item -->
-    <p class="text-muted">
-      Total: {{ product.prix * product.quantitySelected }} €
-    </p>
-
-    <div class="d-flex justify-content-between align-items-center">
-      <!-- Quantity Control and Remove Button -->
-      <div class="d-flex justify-content-center align-items-center">
-        <button
-          class="btn btn-outline-secondary"
-          (click)="decreaseQuantity()"
-          [disabled]="product.quantitySelected === 1"
-        >
-          -
-        </button>
-        <span class="mx-2">{{ product.quantitySelected }}</span>
-        <button
-          class="btn btn-outline-secondary"
-          (click)="increaseQuantity()"
-          [disabled]="product.quantitySelected === product.stock"
-        >
-          +
-        </button>
+    <!-- Quantity and Total Price -->
+    <div class="col-3 card-body">
+      <div class="d-flex align-items-center justify-content-center">
+        <!-- Quantity Control -->
+        <div>
+          <button
+            class="btn btn-outline-secondary btn-sm"
+            (click)="decreaseQuantity()"
+            [disabled]="product.quantitySelected === 1"
+          >
+            -
+          </button>
+          <span class="mx-2 text-center">{{ product.quantitySelected }}</span>
+          <button
+            class="btn btn-outline-secondary btn-sm"
+            (click)="increaseQuantity()"
+            [disabled]="product.quantitySelected === product.stock"
+          >
+            +
+          </button>
+        </div>
+        <!-- Total Price for this item -->
+        <div class="price m-3 text-end">
+          <h5 class="text-danger">{{ totalPrice }} €</h5>
+        </div>
       </div>
 
-      <!-- Remove Product from Cart Button -->
-      <button class="btn btn-danger btn-sm" (click)="removeFromCart()">
-        Remove
+      <!-- Remove Button -->
+    </div>
+    <div class="col-3 card-body">
+      <button class="btn btn-light" (click)="removeFromCart()">
+        <i class="bi bi-trash text-danger"></i>
       </button>
     </div>
   </div>

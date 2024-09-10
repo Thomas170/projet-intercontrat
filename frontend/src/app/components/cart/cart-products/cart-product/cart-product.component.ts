@@ -5,13 +5,15 @@ import { Product } from '../../../../models/product'; // Adjust the path to wher
   selector: 'app-cart-product',
   standalone: true,
   templateUrl: './cart-product.component.html',
-  styleUrls: ['./cart-product.component.css']
+  styleUrls: ['./cart-product.component.css'],
 })
 export class CartProductComponent {
-  @Input() product!: Product;  // Receives the product data from the parent (cart component)
+  @Input() product!: Product; // Receives the product data from the parent (cart component)
   //@Output() quantityChanged = new EventEmitter<Product>();  // Emits when the quantity is changed
-  //@Output() removedFromCart = new EventEmitter<Product>();  // Emits when the product is removed from the cart
 
+  get totalPrice(): number {
+    return this.product.quantitySelected * this.product.prix;
+  }
   // Increase product quantity in the cart
   increaseQuantity(): void {
     if (this.product.quantitySelected < this.product.stock) {
@@ -35,4 +37,3 @@ export class CartProductComponent {
     // TODO this.removedFromCart.emit(this.cartProduct);  // Notify parent that this product has been removed
   }
 }
-
