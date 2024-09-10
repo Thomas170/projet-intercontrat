@@ -14,24 +14,22 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductMapper productMapper;
 
-    public ProductController(ProductService productService, ProductMapper productMapper) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
-        this.productMapper = productMapper;
     }
 
     @PostMapping("")
-    public ResponseEntity<Product> createProduct(@RequestBody ProductDTO productDTO) {
-        Product createdProduct = productService.createProduct(productMapper.toProduct(productDTO));
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        Product createdProduct = productService.createProduct(product);
 
         return ResponseEntity.ok(createdProduct);
     }
 
     @GetMapping("")
-    public ResponseEntity<List<ProductDTO>> getAllProducts() {
+    public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
 
-        return ResponseEntity.ok(productMapper.toProductDTOs(products));
+        return ResponseEntity.ok(products);
     }
 }

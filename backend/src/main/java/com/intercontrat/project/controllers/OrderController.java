@@ -11,45 +11,43 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/orders")
 public class OrderController {
     private final OrderService orderService;
-    private final OrderMapper orderMapper;
 
-    public OrderController(OrderService orderService, OrderMapper orderMapper) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.orderMapper = orderMapper;
     }
 
     @PostMapping("/{orderId}/products/{productId}")
-    public ResponseEntity<OrderDTO> addProductToOrder(@PathVariable Long orderId, @PathVariable Long productId) {
+    public ResponseEntity<Order> addProductToOrder(@PathVariable Long orderId, @PathVariable Long productId) {
         Order updatedOrder = orderService.addProductToOrder(orderId, productId);
 
-        return ResponseEntity.ok(orderMapper.toOrderDTO(updatedOrder));
+        return ResponseEntity.ok(updatedOrder);
     }
 
     @DeleteMapping("/{orderId}/products/{productId}")
-    public ResponseEntity<OrderDTO> removeProductFromOrder(@PathVariable Long orderId, @PathVariable Long productId) {
+    public ResponseEntity<Order> removeProductFromOrder(@PathVariable Long orderId, @PathVariable Long productId) {
         Order updatedOrder = orderService.removeProductFromOrder(orderId, productId);
 
-        return ResponseEntity.ok(orderMapper.toOrderDTO(updatedOrder));
+        return ResponseEntity.ok(updatedOrder);
     }
 
     @GetMapping("/pending")
-    public ResponseEntity<OrderDTO> getPendingOrder() {
+    public ResponseEntity<Order> getPendingOrder() {
         Order order = orderService.getOrCreatePendingOrder();
 
-        return ResponseEntity.ok(orderMapper.toOrderDTO(order));
+        return ResponseEntity.ok(order);
     }
 
     @PostMapping("/{orderId}/ship")
-    public ResponseEntity<OrderDTO> shipOrder(@PathVariable Long orderId) {
+    public ResponseEntity<Order> shipOrder(@PathVariable Long orderId) {
         Order updatedOrder = orderService.shipOrder(orderId);
 
-        return ResponseEntity.ok(orderMapper.toOrderDTO(updatedOrder));
+        return ResponseEntity.ok(updatedOrder);
     }
 
     @PostMapping("/{orderId}/cancel")
-    public ResponseEntity<OrderDTO> cancelOrder(@PathVariable Long orderId) {
+    public ResponseEntity<Order> cancelOrder(@PathVariable Long orderId) {
         Order updatedOrder = orderService.cancelOrder(orderId);
 
-        return ResponseEntity.ok(orderMapper.toOrderDTO(updatedOrder));
+        return ResponseEntity.ok(updatedOrder);
     }
 }
