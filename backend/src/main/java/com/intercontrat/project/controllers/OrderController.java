@@ -1,8 +1,6 @@
 package com.intercontrat.project.controllers;
 
-import com.intercontrat.project.dtos.OrderDTO;
 import com.intercontrat.project.entities.Order;
-import com.intercontrat.project.mappers.OrderMapper;
 import com.intercontrat.project.services.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
