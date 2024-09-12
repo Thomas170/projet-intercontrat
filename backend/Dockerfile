@@ -5,11 +5,11 @@ FROM maven:3.9.4-eclipse-temurin-17 as builder
 WORKDIR /app
 
 # Copy the pom.xml and download dependencies
-COPY backend/pom.xml .
+COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the project files
-COPY backend/ .
+COPY . .
 
 # Build the Spring Boot application
 RUN mvn clean package -DskipTests
