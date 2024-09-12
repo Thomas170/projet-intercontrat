@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Order {
+public class ClientOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,8 +28,8 @@ public class Order {
     private String address;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "orders_products",
-            joinColumns = @JoinColumn(name = "order_id"),
+    @JoinTable(name = "client_orders_products",
+            joinColumns = @JoinColumn(name = "client_order_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     @ToString.Exclude

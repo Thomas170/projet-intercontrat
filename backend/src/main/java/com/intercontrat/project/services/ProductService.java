@@ -24,7 +24,13 @@ public class ProductService {
     }
 
     public Product createProduct(Product product) {
-        Product savedProduct = productRepository.save(product);
+        Product productToSave = new Product();
+        productToSave.setName(product.getName());
+        productToSave.setDescription(product.getDescription());
+        productToSave.setPrice(product.getPrice());
+        productToSave.setQuantity(product.getQuantity());
+
+        Product savedProduct = productRepository.save(productToSave);
 
         kafkaTemplate.send(TOPIC, savedProduct);
 
