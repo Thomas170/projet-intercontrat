@@ -9,7 +9,7 @@ import { Product } from '../../../../models/product'; // Adjust the path to wher
 })
 export class CartProductComponent {
   @Input() product!: Product; // Receives the product data from the parent (cart component)
-  //@Output() quantityChanged = new EventEmitter<Product>();  // Emits when the quantity is changed
+  @Output() updateProduct: EventEmitter<Product> = new EventEmitter();
 
   get totalPrice(): number {
     return this.product.quantitySelected * this.product.prix;
@@ -18,8 +18,8 @@ export class CartProductComponent {
   increaseQuantity(): void {
     if (this.product.quantitySelected < this.product.stock) {
       this.product.quantitySelected++;
-      //this.quantityChanged.emit(this.product);  // Notify parent about the quantity change
-      //TODO :Update total
+      console.log(this.product.quantitySelected);
+      this.updateProduct.emit(this.product); // Notify parent about the quantity change
     }
   }
 
@@ -27,13 +27,14 @@ export class CartProductComponent {
   decreaseQuantity(): void {
     if (this.product.quantitySelected > 1) {
       this.product.quantitySelected--;
-      //this.quantityChanged.emit(this.product);  // Notify parent about the quantity change
-      // TODO : Update total
+      this.updateProduct.emit(this.product); // Notify parent about the quantity change
     }
   }
 
   // Remove the product from the cart
   removeFromCart(): void {
+    this.product.quantitySelected = 0;
+    this.updateProduct.emit(this.product);
     // TODO this.removedFromCart.emit(this.cartProduct);  // Notify parent that this product has been removed
   }
 }

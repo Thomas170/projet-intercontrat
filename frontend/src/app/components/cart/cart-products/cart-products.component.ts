@@ -1,15 +1,19 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../models/product';
 import { CartProductComponent } from './cart-product/cart-product.component';
-import mockProducts from './data.json';
 
 @Component({
   selector: 'app-cart-products',
   standalone: true,
   imports: [CartProductComponent],
   templateUrl: './cart-products.component.html',
-  styleUrl: './cart-products.component.css'
+  styleUrl: './cart-products.component.css',
 })
 export class CartProductsComponent {
-  products : Product[] = mockProducts;
+  @Input() products!: Product[];
+  @Output() updateProduct: EventEmitter<Product> = new EventEmitter();
+
+  updateProductParent(productUpdated: Product): void {
+    this.updateProduct.emit(productUpdated);
+  }
 }

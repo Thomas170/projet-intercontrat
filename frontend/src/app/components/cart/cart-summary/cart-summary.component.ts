@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
+import { Product } from '../../../models/product';
 
 @Component({
   selector: 'app-cart-summary',
@@ -8,16 +15,24 @@ import { Component } from '@angular/core';
   styleUrl: './cart-summary.component.css',
 })
 export class CartSummaryComponent {
-  productsPrice: number = 5; // will be based on a get request from database
-  deliveryPrice: number = 5;
+  @Input() productsPrice!: number; // will be based on a get request from database
+
+  deliveryPrice: number = 199;
   totalPrice: number = 0; // sum products and delivery price
 
   ngOnInit() {
     this.calculateTotalPrice();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['productsPrice']) {
+      this.totalPrice =
+        changes['productsPrice'].currentValue + this.deliveryPrice;
+    }
+  }
+
   payOrder(): void {
-    //TODO
+    //TODO : call service
   }
 
   // Method to calculate total price
