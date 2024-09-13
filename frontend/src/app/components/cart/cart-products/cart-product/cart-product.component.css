@@ -1,0 +1,77 @@
+.img-fluid {
+  max-height: 200px; /* Sets a consistent image height */
+  object-fit: contain; /* Ensures the image fits the box without being stretched */
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+.product-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 200px;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-description {
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+}
+
+.quantity-control button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.quantity-control span {
+  width: 40px;
+  text-align: center;
+}
+
+.price {
+  text-align: right;
+}
+
+.price h5 {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btn-light {
+  border: none;
+  padding: 6px;
+}
+
+.btn-light i {
+  font-size: 1.2rem;
+}

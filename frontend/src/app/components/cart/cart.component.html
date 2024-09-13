@@ -1,0 +1,11 @@
+<div class="container row">
+  <app-cart-products
+    [products]="products()"
+    (updateProduct)="updateProduct($event)"
+    class="col-9"
+  ></app-cart-products>
+  <app-cart-summary
+    [productsPrice]="totalProductsPrice"
+    class="col-3"
+  ></app-cart-summary>
+</div>

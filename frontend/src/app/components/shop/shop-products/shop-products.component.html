@@ -1,0 +1,13 @@
+
+<div class="container">
+  <div class="row">
+    @for(product of products; track product.id) {
+    <!-- Loop through the products array and pass each product to the app-product component -->
+    <div class="col-md-3 mb-4">
+      <app-shop-product
+        [product]="product">
+      </app-shop-product>
+    </div>
+    }
+  </div>
+</div>

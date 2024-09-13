@@ -1,0 +1,21 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Makes sure all cards have the same height */
+}
+
+.card-body {
+  flex-grow: 1; /* Allows the body to take up available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Aligns content evenly */
+}
+
+.img-fluid {
+  max-height: 200px; /* Sets a consistent image height */
+  object-fit: contain; /* Ensures the image fits the box without being stretched */
+}
+
+.btn {
+  margin-top: auto; /* Ensures that the "Ajouter au panier" button stays at the bottom */
+}

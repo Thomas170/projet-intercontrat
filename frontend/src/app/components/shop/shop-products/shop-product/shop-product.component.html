@@ -1,0 +1,35 @@
+<div class="card shadow-sm">
+  <!-- Image du product -->
+  <img class="img-fluid" [src]="'images/' + product.imageUrl" />
+
+  <!-- Contenu du product -->
+  <div class="card-body">
+    <h5 class="card-title">{{ product.nom }}</h5>
+    <!-- <p class="card-text">{{ product.description }}</p> -->
+
+    <!-- Prix du product -->
+    <h5 class="text-danger">{{ product.prix }} €</h5>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Compteur de quantité + bouton ajout -->
+      <div class="d-flex justify-content-center align-items-center">
+        <button
+          class="btn btn-outline-secondary"
+          (click)="decreaseQuantity()"
+          [disabled]="product.quantitySelected === 1"
+        >
+          -
+        </button>
+        <span class="mx-2">{{ product.quantitySelected }}</span>
+        <button
+          class="btn btn-outline-secondary"
+          (click)="increaseQuantity()"
+          [disabled]="product.quantitySelected === product.stock"
+        >
+          +
+        </button>
+      </div>
+      <button class="btn btn-outline-primary btn-sm">Ajouter au panier</button>
+    </div>
+  </div>
+</div>
